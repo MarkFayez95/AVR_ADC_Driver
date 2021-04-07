@@ -1,0 +1,19 @@
+/*
+ * ADC_CFG.h
+ *
+ * Created: 03/04/2021 12:45:58 PM
+ *  Author: Mark Fayez
+ */ 
+
+
+#ifndef ADC_CFG_H_
+#define ADC_CFG_H_
+
+#define ADC_VOLTAGE_REFERENCE	ADC_VREF_AVCC
+#define ADC_ADJUST				ADC_RIGHT_ADJUST
+#define ADC_CHANNEL				ADC_CHANNEL_1
+#define ADC_CONVERSION_TRIGGER	ADC_AUTO_TRIGGER
+#define ADC_PRESCALAR			ADC_PRESC_128
+#define ADC_INTERRUPT_STATUS	ADC_INTERRUPT_DISABLE
+
+#endif /* ADC_CFG_H_ */
