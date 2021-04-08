@@ -7,6 +7,7 @@
 
 #include "Temp_Sensor.h"
 
+
 void TempSensor_Init (void)
 {
 	ADC_Init();
@@ -16,15 +17,12 @@ void TempSensor_Read(uint16* val)
 {
 	uint16 Digital_Out = 0;
 	
-	/*uint32 Vin = 0;
-	
-	ADC_Read(&Digital_Out);
-	
-	Vin = (Digital_Out * ADC_VREF_AVCC) / 1024;
-	
-	*val = Vin/10;*/
-	
-	ADC_Read(&Digital_Out);
+	#if ADC_INTERRUPT_STATUS == ADC_INTERRUPT_DISABLE
+		ADC_Read(&Digital_Out);
+	#elif ADC_INTERRUPT_STATUS == ADC_INTERRUPT_ENABLE
+		ADC_INT_Read(&Digital_Out);
+	#endif
 	
 	*val = (Digital_Out * 500) / 1024;
 }
+

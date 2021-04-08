@@ -39,6 +39,7 @@ SUBDIRS :=
 C_SRCS +=  \
 ../ADC.c \
 ../DIO.c \
+../EXT_INT.c \
 ../LCD.c \
 ../main.c \
 ../Temp_Sensor.c
@@ -53,6 +54,7 @@ ASM_SRCS +=
 OBJS +=  \
 ADC.o \
 DIO.o \
+EXT_INT.o \
 LCD.o \
 main.o \
 Temp_Sensor.o
@@ -60,6 +62,7 @@ Temp_Sensor.o
 OBJS_AS_ARGS +=  \
 ADC.o \
 DIO.o \
+EXT_INT.o \
 LCD.o \
 main.o \
 Temp_Sensor.o
@@ -67,6 +70,7 @@ Temp_Sensor.o
 C_DEPS +=  \
 ADC.d \
 DIO.d \
+EXT_INT.d \
 LCD.d \
 main.d \
 Temp_Sensor.d
@@ -74,6 +78,7 @@ Temp_Sensor.d
 C_DEPS_AS_ARGS +=  \
 ADC.d \
 DIO.d \
+EXT_INT.d \
 LCD.d \
 main.d \
 Temp_Sensor.d
@@ -100,6 +105,13 @@ LINKER_SCRIPT_DEP+=
 	
 
 ./DIO.o: .././DIO.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)D:\Studies\AMIT Embedded Systems course\Tools\ATMEL Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"D:\Studies\AMIT Embedded Systems course\Tools\ATMEL Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "D:\Studies\AMIT Embedded Systems course\Tools\ATMEL Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./EXT_INT.o: .././EXT_INT.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)D:\Studies\AMIT Embedded Systems course\Tools\ATMEL Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"D:\Studies\AMIT Embedded Systems course\Tools\ATMEL Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "D:\Studies\AMIT Embedded Systems course\Tools\ATMEL Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
