@@ -29,7 +29,9 @@ int main(void)
     /* Replace with your application code */
     while (1) 
     {
-		// Do nothing, wait for Interrupt.
+		LCD_Clear();
+		LCD_WriteInteger(Temp);
+		_delay_ms(750);
     }
 }
 
@@ -37,7 +39,6 @@ ISR(ADC_vect)
 {
 	//TempSensor_Read(&Temp);
 	ADC_INT_Read(&Temp);
-	LCD_Clear();
-	LCD_WriteInteger(Temp);
-	_delay_ms(750);
+	//LCD_Clear();
+	//LCD_WriteInteger(Temp);
 }

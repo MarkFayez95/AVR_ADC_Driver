@@ -53,9 +53,11 @@ void ADC_Init(void)
 		SetBit(ADCSRA,ADATE);
 	#endif
 	*/
-	SFIOR &= ~ADC_TRIGGER_SFIOR_ADTS_MASK; // clear the trigger selection bits before setting the required bits
-	SFIOR |= ((ADC_CONVERSION_TRIGGER << ADTS) & ADC_TRIGGER_SFIOR_ADTS_MASK);
-	SetBit(ADCSRA,ADATE);
+	#if	ADC_CONV_TRIGGER_TYPE == ADC_AUTO_ENABLE
+		SFIOR &= ~ADC_TRIGGER_SFIOR_ADTS_MASK; // clear the trigger selection bits before setting the required bits
+		SFIOR |= ((ADC_CONVERSION_TRIGGER << ADTS) & ADC_TRIGGER_SFIOR_ADTS_MASK);
+		SetBit(ADCSRA,ADATE); // enable automatic conversion start
+	#endif
 	
 	// Set ADC Interrupt generate settings
 	#if ADC_INTERRUPT_STATUS == ADC_INTERRUPT_DISABLE

@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 00000170  00000000  00000000  00000868  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00001539  00000000  00000000  000009d8  2**0
+  6 .debug_info   0000153b  00000000  00000000  000009d8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000a68  00000000  00000000  00001f11  2**0
+  7 .debug_abbrev 00000a68  00000000  00000000  00001f13  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000cc8  00000000  00000000  00002979  2**0
+  8 .debug_line   00000cd4  00000000  00000000  0000297b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000002f0  00000000  00000000  00003644  2**2
+  9 .debug_frame  000002f0  00000000  00000000  00003650  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000005a0  00000000  00000000  00003934  2**0
+ 10 .debug_str    000005a0  00000000  00000000  00003940  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000bd6  00000000  00000000  00003ed4  2**0
+ 11 .debug_loc    00000b8e  00000000  00000000  00003ee0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000110  00000000  00000000  00004aaa  2**0
+ 12 .debug_ranges 00000110  00000000  00000000  00004a6e  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -49,7 +49,7 @@ Disassembly of section .text:
   34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  40:	0c 94 1a 03 	jmp	0x634	; 0x634 <__vector_16>
+  40:	0c 94 2d 03 	jmp	0x65a	; 0x65a <__vector_16>
   44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
@@ -1073,55 +1073,61 @@ int main(void)
  62c:	e1 f7       	brne	.-8      	; 0x626 <main+0x44>
  62e:	00 c0       	rjmp	.+0      	; 0x630 <main+0x4e>
  630:	00 00       	nop
- 632:	ff cf       	rjmp	.-2      	; 0x632 <main+0x50>
+	_delay_ms(750);
+	
+    /* Replace with your application code */
+    while (1) 
+    {
+		LCD_Clear();
+ 632:	0e 94 ed 02 	call	0x5da	; 0x5da <LCD_Clear>
+		LCD_WriteInteger(Temp);
+ 636:	60 91 78 00 	lds	r22, 0x0078	; 0x800078 <__data_end>
+ 63a:	70 91 79 00 	lds	r23, 0x0079	; 0x800079 <__data_end+0x1>
+ 63e:	80 e0       	ldi	r24, 0x00	; 0
+ 640:	90 e0       	ldi	r25, 0x00	; 0
+ 642:	0e 94 48 02 	call	0x490	; 0x490 <LCD_WriteInteger>
+ 646:	2f ef       	ldi	r18, 0xFF	; 255
+ 648:	8e e9       	ldi	r24, 0x9E	; 158
+ 64a:	94 e2       	ldi	r25, 0x24	; 36
+ 64c:	21 50       	subi	r18, 0x01	; 1
+ 64e:	80 40       	sbci	r24, 0x00	; 0
+ 650:	90 40       	sbci	r25, 0x00	; 0
+ 652:	e1 f7       	brne	.-8      	; 0x64c <main+0x6a>
+ 654:	00 c0       	rjmp	.+0      	; 0x656 <main+0x74>
+ 656:	00 00       	nop
+ 658:	ec cf       	rjmp	.-40     	; 0x632 <main+0x50>
 
-00000634 <__vector_16>:
-		// Do nothing, wait for Interrupt.
+0000065a <__vector_16>:
+		_delay_ms(750);
     }
 }
 
 ISR(ADC_vect)
 {
- 634:	1f 92       	push	r1
- 636:	0f 92       	push	r0
- 638:	0f b6       	in	r0, 0x3f	; 63
- 63a:	0f 92       	push	r0
- 63c:	11 24       	eor	r1, r1
- 63e:	2f 93       	push	r18
- 640:	3f 93       	push	r19
- 642:	4f 93       	push	r20
- 644:	5f 93       	push	r21
- 646:	6f 93       	push	r22
- 648:	7f 93       	push	r23
- 64a:	8f 93       	push	r24
- 64c:	9f 93       	push	r25
- 64e:	af 93       	push	r26
- 650:	bf 93       	push	r27
- 652:	ef 93       	push	r30
- 654:	ff 93       	push	r31
+ 65a:	1f 92       	push	r1
+ 65c:	0f 92       	push	r0
+ 65e:	0f b6       	in	r0, 0x3f	; 63
+ 660:	0f 92       	push	r0
+ 662:	11 24       	eor	r1, r1
+ 664:	2f 93       	push	r18
+ 666:	3f 93       	push	r19
+ 668:	4f 93       	push	r20
+ 66a:	5f 93       	push	r21
+ 66c:	6f 93       	push	r22
+ 66e:	7f 93       	push	r23
+ 670:	8f 93       	push	r24
+ 672:	9f 93       	push	r25
+ 674:	af 93       	push	r26
+ 676:	bf 93       	push	r27
+ 678:	ef 93       	push	r30
+ 67a:	ff 93       	push	r31
 	//TempSensor_Read(&Temp);
 	ADC_INT_Read(&Temp);
- 656:	88 e7       	ldi	r24, 0x78	; 120
- 658:	90 e0       	ldi	r25, 0x00	; 0
- 65a:	0e 94 79 00 	call	0xf2	; 0xf2 <ADC_INT_Read>
-	LCD_Clear();
- 65e:	0e 94 ed 02 	call	0x5da	; 0x5da <LCD_Clear>
-	LCD_WriteInteger(Temp);
- 662:	60 91 78 00 	lds	r22, 0x0078	; 0x800078 <__data_end>
- 666:	70 91 79 00 	lds	r23, 0x0079	; 0x800079 <__data_end+0x1>
- 66a:	80 e0       	ldi	r24, 0x00	; 0
- 66c:	90 e0       	ldi	r25, 0x00	; 0
- 66e:	0e 94 48 02 	call	0x490	; 0x490 <LCD_WriteInteger>
- 672:	2f ef       	ldi	r18, 0xFF	; 255
- 674:	8e e9       	ldi	r24, 0x9E	; 158
- 676:	94 e2       	ldi	r25, 0x24	; 36
- 678:	21 50       	subi	r18, 0x01	; 1
- 67a:	80 40       	sbci	r24, 0x00	; 0
- 67c:	90 40       	sbci	r25, 0x00	; 0
- 67e:	e1 f7       	brne	.-8      	; 0x678 <__vector_16+0x44>
- 680:	00 c0       	rjmp	.+0      	; 0x682 <__vector_16+0x4e>
- 682:	00 00       	nop
-	_delay_ms(750);
+ 67c:	88 e7       	ldi	r24, 0x78	; 120
+ 67e:	90 e0       	ldi	r25, 0x00	; 0
+ 680:	0e 94 79 00 	call	0xf2	; 0xf2 <ADC_INT_Read>
+	//LCD_Clear();
+	//LCD_WriteInteger(Temp);
 }
  684:	ff 91       	pop	r31
  686:	ef 91       	pop	r30

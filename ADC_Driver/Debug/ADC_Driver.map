@@ -416,11 +416,11 @@ END GROUP
  .text.LCD_Clear
                 0x000005da        0x8 LCD.o
                 0x000005da                LCD_Clear
- .text.main     0x000005e2       0x52 main.o
+ .text.main     0x000005e2       0x78 main.o
                 0x000005e2                main
  .text.__vector_16
-                0x00000634       0x72 main.o
-                0x00000634                __vector_16
+                0x0000065a       0x4c main.o
+                0x0000065a                __vector_16
  .text.TempSensor_Init
                 0x000006a6        0x6 Temp_Sensor.o
                 0x000006a6                TempSensor_Init
@@ -580,15 +580,15 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1539
+.debug_info     0x00000000     0x153b
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 D:/Studies/AMIT Embedded Systems course/Tools/ATMEL Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_info    0x000004e6      0x181 ADC.o
  .debug_info    0x00000667      0x2ad DIO.o
  .debug_info    0x00000914       0xeb EXT_INT.o
  .debug_info    0x000009ff      0x744 LCD.o
- .debug_info    0x00001143      0x2dc main.o
- .debug_info    0x0000141f      0x11a Temp_Sensor.o
+ .debug_info    0x00001143      0x2de main.o
+ .debug_info    0x00001421      0x11a Temp_Sensor.o
 
 .debug_abbrev   0x00000000      0xa68
  *(.debug_abbrev)
@@ -600,15 +600,15 @@ END GROUP
  .debug_abbrev  0x00000859      0x147 main.o
  .debug_abbrev  0x000009a0       0xc8 Temp_Sensor.o
 
-.debug_line     0x00000000      0xcc8
+.debug_line     0x00000000      0xcd4
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x116 D:/Studies/AMIT Embedded Systems course/Tools/ATMEL Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_line    0x00000116      0x1d9 ADC.o
  .debug_line    0x000002ef      0x344 DIO.o
  .debug_line    0x00000633       0xb9 EXT_INT.o
  .debug_line    0x000006ec      0x373 LCD.o
- .debug_line    0x00000a5f      0x1e2 main.o
- .debug_line    0x00000c41       0x87 Temp_Sensor.o
+ .debug_line    0x00000a5f      0x1ee main.o
+ .debug_line    0x00000c4d       0x87 Temp_Sensor.o
 
 .debug_frame    0x00000000      0x2f0
  *(.debug_frame)
@@ -635,13 +635,13 @@ END GROUP
  .debug_str     0x00000571       0x2f Temp_Sensor.o
                                 0x1ff (size before relaxing)
 
-.debug_loc      0x00000000      0xbd6
+.debug_loc      0x00000000      0xb8e
  *(.debug_loc)
  .debug_loc     0x00000000       0x70 ADC.o
  .debug_loc     0x00000070      0x428 DIO.o
  .debug_loc     0x00000498      0x549 LCD.o
- .debug_loc     0x000009e1      0x15b main.o
- .debug_loc     0x00000b3c       0x9a Temp_Sensor.o
+ .debug_loc     0x000009e1      0x113 main.o
+ .debug_loc     0x00000af4       0x9a Temp_Sensor.o
 
 .debug_macinfo
  *(.debug_macinfo)

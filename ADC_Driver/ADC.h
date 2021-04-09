@@ -64,6 +64,10 @@
 #define ADC_INTERRUPT_DISABLE	0
 #define ADC_INTERRUPT_ENABLE	1
 
+#define ADC_AUTO_DISABLE	0
+#define ADC_AUTO_ENABLE		1
+
+
 void ADC_Init(void);
 
 void ADC_Read(uint16* value);
