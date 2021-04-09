@@ -296,7 +296,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x750
+.text           0x00000000      0x7d0
  *(.vectors)
  .vectors       0x00000000       0x54 D:/Studies/AMIT Embedded Systems course/Tools/ATMEL Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -355,7 +355,6 @@ END GROUP
  *(.init9)
  *(.text)
  .text          0x0000008e        0x4 D:/Studies/AMIT Embedded Systems course/Tools/ATMEL Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o
-                0x0000008e                __vector_1
                 0x0000008e                __vector_12
                 0x0000008e                __bad_interrupt
                 0x0000008e                __vector_6
@@ -416,31 +415,34 @@ END GROUP
  .text.LCD_Clear
                 0x000005da        0x8 LCD.o
                 0x000005da                LCD_Clear
- .text.main     0x000005e2       0x78 main.o
+ .text.main     0x000005e2       0x70 main.o
                 0x000005e2                main
+ .text.__vector_1
+                0x00000652       0x62 main.o
+                0x00000652                __vector_1
  .text.__vector_16
-                0x0000065a       0x4c main.o
-                0x0000065a                __vector_16
+                0x000006b4       0x72 main.o
+                0x000006b4                __vector_16
  .text.TempSensor_Init
-                0x000006a6        0x6 Temp_Sensor.o
-                0x000006a6                TempSensor_Init
+                0x00000726        0x6 Temp_Sensor.o
+                0x00000726                TempSensor_Init
  .text.libgcc.div
-                0x000006ac       0x2e d:/studies/amit embedded systems course/tools/atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodsi4.o)
-                0x000006ac                __divmodsi4
+                0x0000072c       0x2e d:/studies/amit embedded systems course/tools/atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodsi4.o)
+                0x0000072c                __divmodsi4
  .text.libgcc.div
-                0x000006da       0x10 d:/studies/amit embedded systems course/tools/atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_negsi2.o)
-                0x000006da                __negsi2
+                0x0000075a       0x10 d:/studies/amit embedded systems course/tools/atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_negsi2.o)
+                0x0000075a                __negsi2
  .text.libgcc.mul
-                0x000006ea       0x1e d:/studies/amit embedded systems course/tools/atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
-                0x000006ea                __umulhisi3
+                0x0000076a       0x1e d:/studies/amit embedded systems course/tools/atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
+                0x0000076a                __umulhisi3
  .text.libgcc.div
-                0x00000708       0x44 d:/studies/amit embedded systems course/tools/atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
-                0x00000708                __udivmodsi4
-                0x0000074c                . = ALIGN (0x2)
+                0x00000788       0x44 d:/studies/amit embedded systems course/tools/atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000788                __udivmodsi4
+                0x000007cc                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000074c        0x0 d:/studies/amit embedded systems course/tools/atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x0000074c                _exit
-                0x0000074c                exit
+ .fini9         0x000007cc        0x0 d:/studies/amit embedded systems course/tools/atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x000007cc                _exit
+                0x000007cc                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -459,11 +461,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000074c        0x4 d:/studies/amit embedded systems course/tools/atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x000007cc        0x4 d:/studies/amit embedded systems course/tools/atmel studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000750                _etext = .
+                0x000007d0                _etext = .
 
-.data           0x00800060       0x18 load address 0x00000750
+.data           0x00800060       0x20 load address 0x000007d0
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -471,28 +473,28 @@ END GROUP
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800060       0x18 main.o
+                0x00800060       0x20 main.o
  *(.gnu.linkonce.r*)
-                0x00800078                . = ALIGN (0x2)
-                0x00800078                _edata = .
-                0x00800078                PROVIDE (__data_end, .)
+                0x00800080                . = ALIGN (0x2)
+                0x00800080                _edata = .
+                0x00800080                PROVIDE (__data_end, .)
 
-.bss            0x00800078        0x2
-                0x00800078                PROVIDE (__bss_start, .)
+.bss            0x00800080        0x2
+                0x00800080                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.Temp      0x00800078        0x2 main.o
-                0x00800078                Temp
+ .bss.Temp      0x00800080        0x2 main.o
+                0x00800080                Temp
  *(COMMON)
-                0x0080007a                PROVIDE (__bss_end, .)
-                0x00000750                __data_load_start = LOADADDR (.data)
-                0x00000768                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800082                PROVIDE (__bss_end, .)
+                0x000007d0                __data_load_start = LOADADDR (.data)
+                0x000007f0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080007a        0x0
+.noinit         0x00800082        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080007a                _end = .
+                0x00800082                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -562,7 +564,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x170
+.debug_aranges  0x00000000      0x178
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x30 ADC.o
@@ -573,22 +575,22 @@ END GROUP
  .debug_aranges
                 0x000000d0       0x50 LCD.o
  .debug_aranges
-                0x00000120       0x28 main.o
+                0x00000120       0x30 main.o
  .debug_aranges
-                0x00000148       0x28 Temp_Sensor.o
+                0x00000150       0x28 Temp_Sensor.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x153b
+.debug_info     0x00000000     0x160e
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 D:/Studies/AMIT Embedded Systems course/Tools/ATMEL Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_info    0x000004e6      0x181 ADC.o
  .debug_info    0x00000667      0x2ad DIO.o
  .debug_info    0x00000914       0xeb EXT_INT.o
  .debug_info    0x000009ff      0x744 LCD.o
- .debug_info    0x00001143      0x2de main.o
- .debug_info    0x00001421      0x11a Temp_Sensor.o
+ .debug_info    0x00001143      0x3b1 main.o
+ .debug_info    0x000014f4      0x11a Temp_Sensor.o
 
 .debug_abbrev   0x00000000      0xa68
  *(.debug_abbrev)
@@ -600,26 +602,26 @@ END GROUP
  .debug_abbrev  0x00000859      0x147 main.o
  .debug_abbrev  0x000009a0       0xc8 Temp_Sensor.o
 
-.debug_line     0x00000000      0xcd4
+.debug_line     0x00000000      0xd1a
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x116 D:/Studies/AMIT Embedded Systems course/Tools/ATMEL Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_line    0x00000116      0x1d9 ADC.o
  .debug_line    0x000002ef      0x344 DIO.o
  .debug_line    0x00000633       0xb9 EXT_INT.o
  .debug_line    0x000006ec      0x373 LCD.o
- .debug_line    0x00000a5f      0x1ee main.o
- .debug_line    0x00000c4d       0x87 Temp_Sensor.o
+ .debug_line    0x00000a5f      0x234 main.o
+ .debug_line    0x00000c93       0x87 Temp_Sensor.o
 
-.debug_frame    0x00000000      0x2f0
+.debug_frame    0x00000000      0x348
  *(.debug_frame)
  .debug_frame   0x00000000       0x44 ADC.o
  .debug_frame   0x00000044       0xb4 DIO.o
  .debug_frame   0x000000f8       0x54 EXT_INT.o
  .debug_frame   0x0000014c       0xd8 LCD.o
- .debug_frame   0x00000224       0x7c main.o
- .debug_frame   0x000002a0       0x50 Temp_Sensor.o
+ .debug_frame   0x00000224       0xd4 main.o
+ .debug_frame   0x000002f8       0x50 Temp_Sensor.o
 
-.debug_str      0x00000000      0x5a0
+.debug_str      0x00000000      0x5ab
  *(.debug_str)
  .debug_str     0x00000000      0x196 D:/Studies/AMIT Embedded Systems course/Tools/ATMEL Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_str     0x00000196      0x1f0 ADC.o
@@ -630,18 +632,18 @@ END GROUP
                                 0x1d0 (size before relaxing)
  .debug_str     0x0000048b       0xb4 LCD.o
                                 0x2cf (size before relaxing)
- .debug_str     0x0000053f       0x32 main.o
-                                0x284 (size before relaxing)
- .debug_str     0x00000571       0x2f Temp_Sensor.o
+ .debug_str     0x0000053f       0x3d main.o
+                                0x28f (size before relaxing)
+ .debug_str     0x0000057c       0x2f Temp_Sensor.o
                                 0x1ff (size before relaxing)
 
-.debug_loc      0x00000000      0xb8e
+.debug_loc      0x00000000      0xce9
  *(.debug_loc)
  .debug_loc     0x00000000       0x70 ADC.o
  .debug_loc     0x00000070      0x428 DIO.o
  .debug_loc     0x00000498      0x549 LCD.o
- .debug_loc     0x000009e1      0x113 main.o
- .debug_loc     0x00000af4       0x9a Temp_Sensor.o
+ .debug_loc     0x000009e1      0x26e main.o
+ .debug_loc     0x00000c4f       0x9a Temp_Sensor.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -661,14 +663,14 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x110
+.debug_ranges   0x00000000      0x118
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x20 ADC.o
  .debug_ranges  0x00000020       0x58 DIO.o
  .debug_ranges  0x00000078       0x28 EXT_INT.o
  .debug_ranges  0x000000a0       0x40 LCD.o
- .debug_ranges  0x000000e0       0x18 main.o
- .debug_ranges  0x000000f8       0x18 Temp_Sensor.o
+ .debug_ranges  0x000000e0       0x20 main.o
+ .debug_ranges  0x00000100       0x18 Temp_Sensor.o
 
 .debug_macro
  *(.debug_macro)

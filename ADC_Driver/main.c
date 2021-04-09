@@ -30,15 +30,23 @@ int main(void)
     while (1) 
     {
 		LCD_Clear();
-		LCD_WriteInteger(Temp);
+		LCD_WriteString("Press Button 2");
 		_delay_ms(750);
     }
+}
+
+ISR(INT0_vect)
+{
+	LCD_Clear();
+	LCD_WriteString("Convert");
+	_delay_ms(30);
 }
 
 ISR(ADC_vect)
 {
 	//TempSensor_Read(&Temp);
 	ADC_INT_Read(&Temp);
-	//LCD_Clear();
-	//LCD_WriteInteger(Temp);
+	LCD_Clear();
+	LCD_WriteInteger(Temp);
+	_delay_ms(500);
 }
